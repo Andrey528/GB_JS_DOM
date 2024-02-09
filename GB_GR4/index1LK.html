@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Привет, DOM-события!</title>
+</head>
+
+<body>
+    <form name="myForm" class="myform">
+        <h2>Form</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi tempore ipsum nam reiciendis, deserunt
+            commodi illum sequi architecto amet optio dolorem repellendus molestiae hic ducimus velit magni voluptate
+            accusantium in.</p>
+        <label>Тестовый checkbox: <input type="checkbox"></label>
+        <div class="error"></div>
+        <button type="submit">Sent</button>
+    </form>
+
+    <script>
+        const checkbox = document.querySelector('input[type=checkbox]')
+        const formEl = document.querySelector('.myform');
+        const error = formEl.querySelector('.error');
+
+        checkbox.addEventListener('click', (event) => {
+            console.log(event.target.checked) // true
+        });
+
+        formEl.addEventListener('submit', function (e) {
+            if (checkbox.checked) {
+                console.log('well done');
+            } else {
+                error.textContent = 'you mast to agree';
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

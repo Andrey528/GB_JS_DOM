@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <div class="wrapper" style="display: flex; flex-direction: column; height: 100vh;">
+        <div class="content" style="flex: 1 0 auto;">
+            <button class="btn-addH1">add h1</button>
+            <button class="btn-delH1">del h1</button>
+            <button class="btn-point">point</button>
+            <button class="btn-buy">buy</button>
+
+        </div>
+        <footer class="footer" style="height: 80px; background: black; flex: 0 0 auto;"></footer>
+    </div>
+
+    <script>
+        // Создать кнопку, которая добавляет заголовок h1 с текстом, “Новый заголовок, данный элемент нужно расположить после кнопки
+        // Создать вторую кнопку, которая будет удалять созданный заголовок h1
+        // Создать третью кнопку, при наведении на которую в консоль будет выводиться текст “вы навели на данную кнопку” , как только вы убираем курсор мыши с кнопки, в консоли должен появиться текст “Наведения на кнопку больше нет”
+
+        const addBtn = document.querySelector('.btn-addH1');
+        const delBtn = document.querySelector('.btn-delH1');
+        const pointBtn = document.querySelector('.btn-point');
+        const buyBtn = document.querySelector('.btn-buy');
+        const footer = document.querySelector('.footer');
+
+
+
+
+        addBtn.addEventListener('click', function (e) {
+            const header1 = document.createElement('h1');
+            header1.setAttribute('class', 'header1');
+            header1.textContent = 'Новый заголовок';
+
+            document.querySelector('.content').appendChild(header1);
+        });
+
+        delBtn.addEventListener('click', function (e) {
+            const header1 = document.querySelector('.header1');
+
+            if (header1 !== null)
+                header1.remove();
+        });
+
+        pointBtn.addEventListener('mouseover', function (e) {
+            console.log('вы навели на данную кнопку');
+            footer.style.background = 'red';
+        });
+
+        pointBtn.addEventListener('mouseleave', function (e) {
+            console.log('Наведения на кнопку больше нет');
+            footer.style.background = 'black';
+        });
+
+        buyBtn.addEventListener('click', function (e) {
+            let initText = buyBtn.textContent;
+
+            if (initText === 'buy')
+                buyBtn.textContent = 'add to cart';
+            else
+                buyBtn.textContent = 'buy';
+        });
+    </script>
+</body>
+
+</html>

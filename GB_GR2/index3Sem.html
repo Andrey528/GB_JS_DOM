@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <input type="text">
+        <button class="btn">Отправить</button>
+    </form>
+
+    <script>
+        const btn = document.querySelector('.btn');
+        const userInput = btn.previousElementSibling;
+
+        btn.addEventListener('click', () => {
+            if (userInput.value === '') {
+                const header2 = document.createElement('h2');
+                header2.textContent = 'empty';
+                header2.setAttribute('class', 'header2');
+
+                btn.parentElement.appendChild(header2);
+
+                userInput.style.border = '1px solid red';
+            } else {
+                userInput.style.border = '';
+                if (document.querySelector('.header2') !== null)
+                    document.querySelector('.header2').remove();
+            }
+        });
+
+        const cancelBtn = document.createElement('button');
+        cancelBtn.textContent = 'cancel';
+        btn.parentElement.appendChild(cancelBtn);
+
+        cancelBtn.addEventListener('click', () => {
+            userInput.value = '';
+            userInput.style.border = '';
+            if (document.querySelector('.header2') !== null)
+                document.querySelector('.header2').remove();
+        });
+    </script>
+</body>
+
+</html>

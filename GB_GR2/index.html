@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .heading {
+            color: white;
+            text-transform: uppercase;
+            background-color: #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class=".content">
+        <p>Первый параграф</p>
+        <p>Второй параграф</p>
+        <p>Тритий параграф</p>
+    </div>
+    <ul class="menu">
+        <li class="menu__list"><a href="#" class="menu__link">link 1</a></li>
+        <li class="menu__list"><a href="#" class="menu__link">link 2</a></li>
+        <li class="menu__list"><a href="#" class="menu__link">link 3</a></li>
+        <li class="menu__list"><a href="#" class="menu__link">link 4</a></li>
+    </ul>
+    <!-- <div class="content"></div> -->
+    <script>
+        // example 1
+        // const content = document.querySelector('.content');
+
+        // const h1El = document.createElement('h1');
+        // h1El.textContent = 'h1 element';
+        // // h1El.style.backgroundColor = '#ccc';
+        // // h1El.style.textAlign = 'center';
+        // h1El.setAttribute('class', 'heading');
+
+        // const imgEl = document.createElement('img')
+        // imgEl.src = 'photo.png';
+        // imgEl.setAttribute('alt', 'just photo')
+
+        // content.appendChild(h1El);
+        // content.appendChild(imgEl)
+
+
+        // example 2
+        // const liEl = document.querySelectorAll('.menu__list');
+        // const liElOne = document.querySelector('.menu__list');
+        // const linkEl = document.querySelector('.menu__link');
+        // const menuEl = document.querySelector('.menu');
+
+        // menuEl.childNodes.forEach(console.log);
+
+
+        // example 3 spread operator
+        const studentsGroup1PracticeTime = [
+            {
+                firstName: "Ivanov",
+                practiceTime: 56
+            },
+            {
+                firstName: "Petrov",
+                practiceTime: 120
+            },
+            {
+                firstName: "Sidorov",
+                practiceTime: 148
+            },
+            {
+                firstName: "Belkin",
+                practiceTime: 20
+            },
+            {
+                firstName: "Avdeev",
+                practiceTime: 160
+            }
+        ];
+        const studentsGroup2PracticeTime = [
+            {
+                firstName: "Mankov",
+                practiceTime: 87
+            },
+            {
+                firstName: "Kistin",
+                practiceTime: 133
+            },
+            {
+                firstName: "Kotlyarov",
+                practiceTime: 140
+            },
+            {
+                firstName: "Peskov",
+                practiceTime: 10
+            },
+        ];
+
+        // function findMax() {
+        //     const values = arguments;
+        //     let maxValue = -Infinity;
+        //     for (let index = 0; index < values.length; index++) {
+        //         if (values[index] > maxValue) maxValue = values[index];
+        //     }
+        //     return maxValue;
+        // };
+
+        // const group1PracticeTime = studentsGroup1PracticeTime.map((student) =>
+        //     student.practiceTime);
+        // const group2PracticeTime = studentsGroup2PracticeTime.map((student) =>
+        //     student.practiceTime);
+
+        // const maxTimeFromGroup1 = findMax(...group1PracticeTime);
+        // console.log(maxTimeFromGroup1); // 160
+        // const maxTimeFromGroup2 = findMax(...group2PracticeTime);
+        // console.log(maxTimeFromGroup2); // 140
+        // const bothGroupsTime = [...group1PracticeTime, ...group2PracticeTime];
+        // const maxTimeBothGroups = findMax(...bothGroupsTime);
+        // console.log(maxTimeBothGroups); // 160
+
+
+        // example 4 rest operator
+        // function findMax(...values) {
+        //     return values.reduce((acc, value) => {
+        //         if (value > acc) return value;
+        //         return acc;
+        //     }, -Infinity);
+        // }
+
+        // const group1PracticeTime = studentsGroup1PracticeTime.map((student) =>
+        //     student.practiceTime);
+        // const group2PracticeTime = studentsGroup2PracticeTime.map((student) =>
+        //     student.practiceTime);
+        // const maxTimeFromGroup1 = findMax(...group1PracticeTime);
+        // console.log(maxTimeFromGroup1); // 160
+        // const maxTimeFromGroup2 = findMax(...group2PracticeTime);
+        // console.log(maxTimeFromGroup2); // 140
+        // const bothGroupsTime = [...group1PracticeTime, ...group2PracticeTime];
+        // const maxTimeBothGroups = findMax(...bothGroupsTime);
+        // console.log(maxTimeBothGroups); // 160
+        // const saveFullNameInDB = (firstName, lastName, ...additionals) => {
+        //     saveFirstName(firstName);
+        //     saveLastName(lastName);
+        //     saveAdditionals(additionals);
+        // }
+
+
+        // example 5
+        const divElement = document.querySelector('.content');
+        console.log(divElement.childNodes.length); // 7
+        console.log(divElement.children.length); // 3
+
+        Array.from(divElement.childNodes).forEach((childNode) => {
+            console.log('childNode "%s" типа "%d"', childNode.nodeName, childNode.nodeType)
+        });
+        [...divElement.children].forEach((child) => {
+            console.log('child "%s" типа "%d"', child.nodeName, child.nodeType)
+        });
+
+
+        // example 6
+        const allParagraphElements = divElement.querySelectorAll('p');
+        console.log('Static NodeList длина до: %d', allParagraphElements.length);
+        console.log('Dynamic NodeList длина до: %d', divElement.childNodes.length);
+        console.log('HTMLCollection длина до: %d', divElement.children.length);
+        const fourthParagraphElement = document.createElement('p');
+        fourthParagraphElement.textContent = 'Четвертый параграф';
+        divElement.appendChild(fourthParagraphElement);
+        console.log('Static NodeList длина после: %d', allParagraphElements.length);
+        console.log('Dynamic NodeList длина после: %d', divElement.childNodes.length);
+        console.log('HTMLCollection длина после: %d', divElement.children.length);
+    </script>
+</body>
+
+</html>

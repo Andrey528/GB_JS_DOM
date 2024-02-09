@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="menu">
+        <li class="li-item">item 1</li>
+        <li class="li-item">item 2</li>
+        <li class="li-item">item 3</li>
+    </ul>
+
+    <button class="add-btn">add new li</button>
+    <button class="del-btn">del first li</button>
+    <button class="btn">push</button>
+
+
+    <script>
+        // Создать в html список состоящий из 3-х произвольных элементов li
+        // Нужно создать кнопку которая будет добавлять элементы списка с текстом “новый элемент списка”
+        // Создать кнопку, которая будет удалять первый элемент из созданного списка
+        // Создать кнопку, при клике на которую ей добавляется класс “click”
+
+        const menu = document.querySelector('.menu');
+        const addBtn = document.querySelector('.add-btn');
+        const delBtn = document.querySelector('.del-btn');
+        const btn = document.querySelector('.btn');
+
+
+        addBtn.addEventListener('click', function (e) {
+            const newLi = document.createElement('li');
+
+            newLi.textContent = 'new li';
+
+            menu.appendChild(newLi);
+        });
+
+        delBtn.addEventListener('click', function (e) {
+            menu.firstElementChild.remove();
+        });
+
+        btn.addEventListener('click', function (e) {
+            btn.classList.add('click');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content">
+        <button class="btn">btn 1</button>
+        <button class="btn">btn 2</button>
+        <button class="btn">btn 3</button>
+        <button class="btn btn4">btn 4</button>
+        <button class="btn btn5">btn 5</button>
+    </div>
+
+
+    <script>
+        // Создать в html три кнопки button с нумерацией (1, 2, 3 соответственно)
+        // Добавить клик на кнопку , чтобы в консоль выводилась именно та кнопка на которую мы нажали
+        // Добавить кнопку button с текстом 4, которая считает сколько раз на нее нажали и количество нажатий на эту кнопку выводит в консоль
+        // Создать кнопку button с текстом 5, При клике на которую, меняется текст данной кнопки на “Вы нажали на эту кнопку”
+
+        const content = document.querySelector('.content');
+
+        content.addEventListener('click', function (e) {
+            console.log(e.target);
+        });
+
+        let count = 1;
+
+        document.querySelector('.btn4').addEventListener('click', () => {
+            let suffix;
+            let lastTwoDigits = count % 100;
+
+            if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+                suffix = 'раз';
+            } else {
+                var lastDigit = count % 10;
+
+                switch (lastDigit) {
+                    case 1:
+                        suffix = 'раз';
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                        suffix = 'раза';
+                        break;
+                    default:
+                        suffix = 'раз';
+                        break;
+                }
+            }
+
+            console.log(count++ + ' ' + suffix);
+        });
+
+        const btn5 = document.querySelector('.btn5')
+
+        btn5.addEventListener('click', () => btn5.textContent = 'you push that btn');
+    </script>
+</body>
+
+</html>

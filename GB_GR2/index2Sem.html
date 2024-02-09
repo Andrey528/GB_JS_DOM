@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="item">
+        <div class="elem">
+            <div class="info">
+                <h2 class="subtitle">Lorem, ipsum dolor.</h2>
+            </div>
+        </div>
+    </div>
+    <script>
+        const header2 = document.querySelector('.subtitle');
+        let curEl = header2;
+
+        const btn = document.createElement('button');
+        btn.textContent = 'push';
+
+        const blockInfo = document.querySelector('.info');
+        blockInfo.appendChild(btn);
+
+        btn.addEventListener('click', () => {
+            const block = document.createElement('div');
+
+            while (curEl.parentElement !== null) {
+                const ph = document.createElement('p');
+                ph.textContent = curEl.parentElement.nodeName;
+                block.appendChild(ph);
+                curEl = curEl.parentElement;
+            }
+
+            blockInfo.appendChild(block);
+        });
+    </script>
+</body>
+
+</html>

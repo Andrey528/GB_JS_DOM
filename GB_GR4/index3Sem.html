@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" id="myform">
+        <input type="text" name="userInput" id="userInput">
+        <h1>Header</h1>
+    </form>
+
+    <script>
+        // Создать поле ввода и под ним заголовок h1 с текстом “Заголовок”
+        // При вводе текста в поле ввода необходимо чтобы текст внутри заголовка менятся на введенный в поле ввода
+
+        userInput.addEventListener('input', function (e) {
+            myform.querySelector('h1').textContent = userInput.value ? userInput.value : 'Header';
+        });
+    </script>
+</body>
+
+</html>

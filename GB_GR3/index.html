@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <ul class="menu">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+    </ul> -->
+
+    <!-- <h1>Lorem, ipsum dolor.</h1> -->
+    <!-- <div class="btn">buy</div> -->
+
+    <!-- <a href="yandex.ru" class="link">yandex</a> -->
+
+    <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi qui eaque omnis voluptates enim officiis quod
+        libero provident voluptas sequi.</p> -->
+
+    <!-- <input type="text"> -->
+
+    <form action="#">
+        <input type="text" class="input">
+        <div class="error"></div>
+        <button type="submit">go</button>
+    </form>
+
+    <script>
+        // const menuEl = document.querySelector('.menu');
+
+        // const nameF = (e) => { console.log(e.target, e.currentTarget); }
+
+        // menuEl.addEventListener('click', nameF);
+
+        // ['hello', 'world'].forEach(function (item) {
+        //     const el = document.createElement('p');
+        //     el.append(item);
+        //     document.querySelector('.menu').append(el);
+        // });
+
+        // document.addEventListener('DOMContentLoaded', function (e) {
+        //     console.log('loaded');
+        // });
+
+        // window.addEventListener('load', function (e) {
+        //     console.log('all loaded');
+        // });
+
+        // const btn = document.querySelector('.btn');
+
+        // btn.addEventListener('mouseover', function (e) {
+        //     console.log('no need to point, just push');
+        // });
+
+        // window.addEventListener('keydown', function (e) {
+        //     console.log(e.key);
+        // });
+
+        // const link = document.querySelector('.link');
+
+        // link.addEventListener('click', function (e) {
+        //     e.preventDefault();
+        //     console.log('hello link');
+        // });
+
+        // document.addEventListener('copy', function (e) {
+        //     const copyText = document.getSelection().toString();
+        //     console.log(copyText);
+        // });
+
+        // window.addEventListener('resize', function (e) {
+        //     console.log('resize');
+        // });
+
+        // document.querySelector('input').addEventListener('input', function (e) {
+        //     console.log(e.target.value);
+        // });
+
+        // document.querySelector('input').addEventListener('input', function (e) {
+        //     if (e.target.value == 123)
+        //         console.log('well done');
+        //     else
+        //         console.log('bad choice');
+        // });
+
+        const inputText = document.querySelector('input');
+        const formRun = document.querySelector('form');
+        const errorEl = document.querySelector('.error');
+
+        formRun.addEventListener('submit', function (e) {
+            if (inputText.value === '') {
+                e.preventDefault();
+                errorEl.textContent = 'Empty field';
+            }
+        });
+    </script>
+</body>
+
+</html>

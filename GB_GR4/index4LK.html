@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="index4LK.html" class="form">
+        <div class="">
+            <label for="select" name="select" id="select"></label>
+            <select name="select" id="select" class="select">
+                <option value="city" class="option">Choose city</option>
+                <option value="Krasnodar" class="option">Krasnodar</option>
+                <option value="Rostov" class="option">Rostov</option>
+                <option value="Stavropol" class="option">Stavropol</option>
+                <option value="Sochi" class="option">Sochi</option>
+                <option value="Maykop" class="option">Maykop</option>
+            </select>
+        </div>
+        <button type="submit" class="button">Sent</button>
+    </form>
+
+    <script>
+        const formEl = document.querySelector('.form');
+        const selectEl = document.querySelector('.select');
+        const button = formEl.querySelector('.button');
+
+        document.addEventListener('click', function (e) {
+            console.log(selectEl.value);
+            e.preventDefault();
+            if (selectEl.value === 'city') {
+                selectEl.classList.add('select__error');
+            } else {
+                selectEl.classList.remove('select__error');
+                return;
+            }
+        });
+    </script>
+</body>
+
+</html>

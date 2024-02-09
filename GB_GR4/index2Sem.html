@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" id="myform">
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" class="password">
+        <div id="error"></div>
+        <button type="submit" id="btn">sent</button>
+    </form>
+
+    <script>
+        // Создать поле ввода (пароль)
+        // Кнопка отправить
+        // Если пользователь вводит текст “пароль” то поле ввода должно быть подсвечено зеленым цветом
+        // Если пароль неверный, у поля ввода появляется красная обводка и текст “пароль неверный”
+
+        const userPsw = 'password';
+
+        myform.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            if (password.value === userPsw) {
+                password.style.border = '3px solid green';
+                error.textContent = 'Right';
+            }
+            else if (password.value === '') {
+                password.style.border = '3px solid red';
+                error.textContent = 'Must be something';
+            }
+            else {
+                password.style.border = '3px solid red';
+                error.textContent = 'Wrong';
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

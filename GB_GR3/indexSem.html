@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn">submit</button>
+
+    <script>
+        // В html создать кнопку button
+        // После загрузки страницы вывести в консоль текст “страница загрузилась”
+        // Добавить событие onclick которое выводит в консоль текст “событие onclick”
+        // Добавить событие addEventListener которое выводит в консоль текст “событие addEventListener”
+
+        window.addEventListener('load', function (e) {
+            console.log('all loaded');
+        });
+
+        const eOnclick = () => console.log('onclick event');
+
+        document.querySelector('.btn').onclick = eOnclick;
+
+        document.querySelector('.btn').addEventListener('click', eOnclick);
+
+    </script>
+</body>
+
+</html>
