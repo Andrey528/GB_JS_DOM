@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div draggable="true" class="box">A</div>
+        <div draggable="true" class="box">B</div>
+        <div draggable="true" class="box">C</div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function (e) {
+            let dragSrcEl = null;
+
+            function handleDragStart(e) {
+                this.style.opacity = '0.4';
+
+                dragSrcEl = this;
+                console.log(dragSrcEl);
+
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/html', this.innerHTML);
+            }
+
+            function handleDragOver(e) {
+                if (e.preventDefault) {
+                    e.preventDefault();
+                }
+
+                e.dataTransfer.dropEffect = 'move';
+                return false;
+            }
+
+            function handleDragEnter(e) {
+                this.classList.add('over');
+            }
+
+            function handleDragLeave(e) {
+                this.classList.remove('over');
+            }
+
+            function handleDrop(e) {
+                if (e.stopPropagation) {
+                    e.stopPropagation(); // Останавливает перенаправление браузера
+                }
+
+                if (dragSrcEl != this) {
+                    dragSrcEl.innerHTML = this.innerHTML;
+                    this.innerHTML = e.dataTransfer.getData('text/html');
+                }
+            }
+
+            function handleDragEnd(e) {
+                this.style.opacity = '1';
+
+                items.forEach(element => {
+                    element.classList.remove('over');
+                });
+            }
+
+            let items = document.querySelectorAll('.box');
+            items.forEach(item => {
+                item.addEventListener('dragstart', handleDragStart);
+                item.addEventListener('dragenter', handleDragEnter);
+                item.addEventListener('dragover', handleDragOver);
+                item.addEventListener('dragleave', handleDragLeave);
+                item.addEventListener('dragstart', handleDragStart);
+                item.addEventListener('drop', handleDrop);
+                item.addEventListener('dragend', handleDragEnd);
+            });
+        });
+    </script>
+</body>
+
+</html>
