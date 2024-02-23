@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  height: 100%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  height: 100%;
+}
+
+.center {
+  padding-left: calc(50% - 570px);
+  padding-right: calc(50% - 570px);
+}
+
+.smart_tv {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  position: relative;
+}
+
+.player {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+}
+.player__backgroundImg {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+}
+.player__videoTeg {
+  position: absolute;
+  width: 78.5%;
+  height: 71%;
+  top: 9.4%;
+  left: 10.7%;
+  background: #000;
+}
+
+.playerButtons {
+  position: absolute;
+  top: 75%;
+  left: 6%;
+  bottom: 40px;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  transition: opacity 0.4s;
+  color: white;
+}
+
+.playerOptions {
+  position: absolute;
+  top: 69%;
+  left: 11%;
+  bottom: 40px;
+  width: 78%;
+  display: flex;
+  flex-direction: column;
+}
+.playerOptions > .volume {
+  position: absolute;
+  right: 0;
+  width: 15%;
+  top: 24%;
+}
+
+.playerTimesteps {
+  position: absolute;
+  top: 73%;
+  left: 12%;
+  color: white;
+}/*# sourceMappingURL=style.css.map */

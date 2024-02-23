@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Open+Sans:wght@600;700;800&family=PT+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <section class="smart_tv center">
+        <div class="player">
+            <img src="img/html_videoplayer_02.png" alt="" class="player__backgroundImg">
+
+            <video class="player__videoTeg">
+                <source src="https://webcode.tools/media/video.mp4" type="video/mp4">
+            </video>
+
+            <div class="playerOptions">
+                <input type="range" class="timing" value="0" step="0.001">
+                <input type="range" class="volume" min="0" max="1" step="0.01">
+            </div>
+
+            <div class="playerButtons">
+                <i class="fas fa-play"></i>
+                <i class="fas fa-pause"></i>
+                <i class="fas fa-repeat"></i>
+            </div>
+
+            <div class="playerTimesteps">
+                <span class="currentTime">0</span>
+            </div>
+        </div>
+    </section>
+
+    <!--     <audio controls class="audio"
+        src="https://cdn.mp3xa.me/zXFLG_sewkbxgo2Gib8iog/1708663595/L29ubGluZS9tcDMvMjAxOS8wMi_QlNCU0KIgLSDQrdGC0L4g0LLRgdC1Lm1wMw">
+    </audio>
+
+    <input type="file" accept="audio/*" capture id="recorder">
+    <audio id="player" controls></audio> -->
+
+
+    <script>
+        // const audioEl = document.querySelector('.audio');
+
+        // audioEl.addEventListener('play', function (e) {
+        //     console.log('Playing');
+        // });
+
+        // audioEl.addEventListener('pause', function (e) {
+        //     console.log('Pausing');
+        // });
+
+        // const recorder = document.getElementById('recorder')
+        // const player = document.getElementById('player')
+        // recorder.addEventListener('change', (event) => {
+        //     const [file] = event.target.files
+        //     const url = URL.createObjectURL(file)
+        //     // Добавление элементу потока в качестве источника
+        //     player.src = url
+        // })
+
+        const videoEl = document.querySelector('video'),
+            playBtnEl = document.querySelector('.fa-play'),
+            pauseBtnEl = document.querySelector('.fa-pause'),
+            volumeEl = document.querySelector('.volume'),
+            timingEl = document.querySelector('.timing'),
+            currentTimeEl = document.querySelector('.currentTime'),
+            repeatBtnEl = document.querySelector('.fa-repeat');
+
+        playBtnEl.addEventListener('click', () => {
+            videoEl.play();
+        });
+
+        pauseBtnEl.addEventListener('click', () => {
+            videoEl.pause();
+        });
+
+        repeatBtnEl.addEventListener('click', () => {
+            videoEl.currentTime = 0;
+        });
+
+        videoEl.addEventListener('timeupdate', () => {
+            const minutes = Math.floor(videoEl.currentTime / 60);
+            const seconds = Math.floor(videoEl.currentTime % 60);
+            currentTimeEl.innerText = `${minutes} : ${seconds < 10 ? '0' : ''} ${seconds}`;
+            timingEl.value = videoEl.currentTime / videoEl.duration * 100;
+        });
+
+        volumeEl.addEventListener('input', () => {
+            videoEl.volume = volumeEl.value;
+        });
+
+        timingEl.addEventListener('input', () => {
+            videoEl.currentTime = timingEl.value / 100 * videoEl.duration;
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/4f1884b052.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
